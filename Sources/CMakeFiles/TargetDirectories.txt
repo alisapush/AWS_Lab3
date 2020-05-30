@@ -1,0 +1,3 @@
+/Users/alisapushnova/Downloads/Lab3/CMakeFiles/rebuild_cache.dir
+/Users/alisapushnova/Downloads/Lab3/CMakeFiles/edit_cache.dir
+/Users/alisapushnova/Downloads/Lab3/CMakeFiles/riscv_sim.dir
