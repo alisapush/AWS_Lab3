@@ -1,6 +1,8 @@
 #include "Cpu.h"
 #include "Memory.h"
 #include "BaseTypes.h"
+#include "MemoryStorage.h"
+#include "CachedMem.h"
 
 #include <optional>
 

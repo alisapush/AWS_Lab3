@@ -7,6 +7,7 @@
 #include "RegisterFile.h"
 #include "CsrFile.h"
 #include "Executor.h"
+#include "CachedMem.h"
 
 class Cpu
 {

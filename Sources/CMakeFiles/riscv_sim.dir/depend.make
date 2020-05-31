@@ -7,12 +7,15 @@ CMakeFiles/riscv_sim.dir/src/Instruction.cpp.o: src/Instruction.h
 CMakeFiles/riscv_sim.dir/src/Instruction.cpp.o: src/PoolAllocator.h
 
 CMakeFiles/riscv_sim.dir/src/main.cpp.o: src/BaseTypes.h
+CMakeFiles/riscv_sim.dir/src/main.cpp.o: src/CachedMem.h
 CMakeFiles/riscv_sim.dir/src/main.cpp.o: src/Cpu.h
 CMakeFiles/riscv_sim.dir/src/main.cpp.o: src/CsrFile.h
 CMakeFiles/riscv_sim.dir/src/main.cpp.o: src/Decoder.h
 CMakeFiles/riscv_sim.dir/src/main.cpp.o: src/Executor.h
+CMakeFiles/riscv_sim.dir/src/main.cpp.o: src/IMem.h
 CMakeFiles/riscv_sim.dir/src/main.cpp.o: src/Instruction.h
 CMakeFiles/riscv_sim.dir/src/main.cpp.o: src/Memory.h
+CMakeFiles/riscv_sim.dir/src/main.cpp.o: src/MemoryStorage.h
 CMakeFiles/riscv_sim.dir/src/main.cpp.o: src/PoolAllocator.h
 CMakeFiles/riscv_sim.dir/src/main.cpp.o: src/RegisterFile.h
 CMakeFiles/riscv_sim.dir/src/main.cpp.o: src/elf.h
