@@ -1,7 +1,6 @@
 
 #ifndef RISCV_SIM_IMEMORY_H
 #define RISCV_SIM_IMEMORY_H
-
 #include "MemoryConfig.h"
 
 class IMemory

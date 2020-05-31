@@ -1,4 +1,3 @@
-
 #ifndef RISCV_SIM_DATAMEMORY_H
 #define RISCV_SIM_DATAMEMORY_H
 

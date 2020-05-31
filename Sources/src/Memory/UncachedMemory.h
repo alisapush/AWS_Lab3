@@ -1,7 +1,3 @@
-//
-// Created by Alisa Pushnova on 5/31/20.
-//
-
 #ifndef RISCV_SIM_UNCACHEDMEMORY_H
 #define RISCV_SIM_UNCACHEDMEMORY_H
 

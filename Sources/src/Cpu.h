@@ -1,4 +1,3 @@
-
 #ifndef RISCV_SIM_CPU_H
 #define RISCV_SIM_CPU_H
 
@@ -105,6 +104,5 @@ private:
 	};
 	Status _status;
 };
-
 
 #endif //RISCV_SIM_CPU_H
