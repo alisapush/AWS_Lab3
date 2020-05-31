@@ -15,7 +15,7 @@ public:
 
 	void Request(Word ip)
 	{
-		_tag = ToLineAddr(ip) / lineSizeBytes;                      // evaluating _tag value
+		_tag = to_line_addr(ip) / lineSizeBytes;                      // evaluating _tag value
 		_cached = false;
 		_incomplete_iterations_count = _latency;
 		for (auto &iter : _code_cache)
@@ -41,7 +41,7 @@ public:
 
 		if (_cached)
 		{
-			size_t offset = ToLineOffset(_requested_address);
+			size_t offset = to_line_offset(_requested_address);
 			_cached_code_map[_tag] = clock();
 			return _line[offset];
 		}
@@ -49,7 +49,7 @@ public:
 		std::__1::optional<Word> response = _mem.Read(_requested_address);
 
 		Line new_line = Line();
-		_requested_address = ToLineAddr(_requested_address);
+		_requested_address = to_line_addr(_requested_address);
 		for (size_t i = 0; i < lineSizeWords; i++)
 		{
 			new_line[i] = _mem.Read(_requested_address);
@@ -77,7 +77,7 @@ public:
 		if (instr->_type != IType::Ld && instr->_type != IType::St)
 			return;
 
-		_tag = ToLineAddr(instr->_addr) / lineSizeBytes;
+		_tag = to_line_addr(instr->_addr) / lineSizeBytes;
 		_cached = false;
 		_incomplete_iterations_count = _latency;
 		if (_data_cache.find(_tag) != _data_cache.end())
@@ -110,11 +110,11 @@ public:
 
 		if (instr->_type == IType::Ld)
 		{
-			instr->_data = _data_cache[_tag].first[ToLineOffset(_requested_address)];
+			instr->_data = _data_cache[_tag].first[to_line_offset(_requested_address)];
 		}
 		else
 		{
-			_data_cache[_tag].first[ToLineOffset(_requested_address)] = instr->_data;
+			_data_cache[_tag].first[to_line_offset(_requested_address)] = instr->_data;
 			_data_cache[_tag].second = false;
 		}
 
@@ -124,7 +124,7 @@ public:
 	void SaveInCache()
 	{
 		Line new_line = Line();
-		Word line_begin = ToLineAddr(_requested_address);
+		Word line_begin = to_line_addr(_requested_address);
 		for (size_t i = 0; i < lineSizeWords; i++)
 		{
 			new_line[i] = _mem.Read(line_begin);

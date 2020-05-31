@@ -1,4 +1,3 @@
-
 #ifndef RISCV_SIM_IMEMORY_H
 #define RISCV_SIM_IMEMORY_H
 #include "MemoryConfig.h"
@@ -28,6 +27,5 @@ public:
 
 	virtual void Clock() = 0;
 };
-
 
 #endif //RISCV_SIM_IMEMORY_H
