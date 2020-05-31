@@ -103,8 +103,6 @@ stdint.h
 /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/main.cpp
 Cpu.h
 /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Cpu.h
-Memory/MemoryConfig.h
-/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Memory/MemoryConfig.h
 BaseTypes.h
 /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/BaseTypes.h
 Memory/MemoryStorage.h

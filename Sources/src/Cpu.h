@@ -18,44 +18,63 @@ public:
 		_status = Status::Ready;
 	}
 
-	// =========================
-	void Clock()
+	void Ready()
 	{
-		_csrf.Clock();
-
-		if (_status == Status::Fetching)
-			goto fetching;
-		if (_status == Status::Executing)
-			goto executing;
-
 		_mem.Request(_ip);
-		fetching:
-		_instr_word = _mem.Response();
-		if (_instr_word == std::optional<Word>())
+	}
+
+	bool Fetching()
+	{
+		_instruction_data = _mem.Response();
+		if (_instruction_data == std::optional<Word>())
 		{
-			_status = Status::Fetching;
-			return;
+			_status = Status::Load;
+			return true;
 		}
-		_instruction = _decoder.Decode(*_instr_word);
+		_instruction = _decoder.Decode(*_instruction_data);
 		_rf.Read(_instruction);
 		_csrf.Read(_instruction);
 		_exe.Execute(_instruction, _ip);
 		_mem.Request(_instruction);
-		executing:
-		if (!_mem.Response(
-				_instruction))
+
+		return false;
+	}
+
+	bool Executing()
+	{
+		if (!_mem.Response(_instruction))
 		{
-			_status = Status::Executing;
-			return;
+			_status = Status::Process;
+			return true;
 		}
 		_rf.Write(_instruction);
 		_csrf.Write(_instruction);
 		_csrf.InstructionExecuted();
 		_ip = _instruction->_nextIp;
-		_status = Status::Ready;                          // set status to "Ready" so the next clock will start normally
+		_status = Status::Ready;
+
+		return false;
 	}
 
-	// =========================
+	void Clock()
+	{
+		_csrf.Clock();
+
+		if (_status == Status::Ready)
+		{
+			Ready();
+		}
+
+		if (_status != Status::Process)
+		{
+			if (Fetching())
+			{
+				return;
+			}
+		}
+
+		Executing();
+	}
 
 	void Reset(Word ip)
 	{
@@ -75,21 +94,16 @@ private:
 	CsrFile _csrf;
 	Executor _exe;
 	CachedMemory &_mem;
-	// Add your code here, if needed
-
-	// =========================
 
 	InstructionPtr _instruction;
-	std::optional<Word> _instr_word;
+	std::optional<Word> _instruction_data;
 	enum class Status
 	{
 		Ready,
-		Fetching,
-		Executing
+		Load,
+		Process
 	};
 	Status _status;
-
-	// =========================
 };
 
 
