@@ -5,22 +5,17 @@
 #include "IMemory.h"
 #include "MemoryStorage.h"
 
-// весь класс =========================
 
 class CachedMemory : public IMemory
 {
 public:
-	explicit CachedMemory(MemoryStorage &amem)
-			: _mem(amem)
-	{
-
-	}
+	explicit CachedMemory(MemoryStorage &amem): _mem(amem) { }
 
 	void Request(Word ip)
 	{
 		_tag = ToLineAddr(ip) / lineSizeBytes;                      // evaluating _tag value
 		_cached = false;
-		_waitCycles = _latency;
+		_incomplete_iterations_count = _latency;
 		for (auto &iter : _code_cache)
 		{
 			if (iter.first == _tag)
@@ -28,55 +23,59 @@ public:
 				// if corresponding tag is found
 				_line = iter.second;                                // get whole line from cache
 				_cached = true;                                     // set cached to true
-				_waitCycles = 0;                                    // instructions are fetched from cache immediately
+				_incomplete_iterations_count = 0;                                    // instructions are fetched from cache immediately
 				break;
 			}
 		}
-		_requestedIp = ip;
+		_requested_address = ip;
 	}
 
 	std::__1::optional<Word> Response()                                  // fetching instruction
 	{
-		if (_waitCycles > 0)                                        // if not ready yet - return empty instruction
+		// if not ready yet - return empty instruction
+		if (_incomplete_iterations_count > 0)
+		{
 			return std::__1::optional<Word>();
+		}
 
-// if instr is cached - return requested value from cache
+		// if instr is cached - return requested value from cache
 		if (_cached)
 		{
-			size_t offset = ToLineOffset(_requestedIp);
-			_code_queue[_tag] = clock();
+			size_t offset = ToLineOffset(_requested_address);
+			_cached_code_map[_tag] = clock();
 			return _line[offset];
 		}
 
 		// if instr is not cached - return from memory like usual but
-		std::__1::optional<Word> response = _mem.Read(_requestedIp);
+		std::__1::optional<Word> response = _mem.Read(_requested_address);
 
 		// put the whole line in which instruction lives in cache
 		Line new_line = Line();
-		_requestedIp = ToLineAddr(_requestedIp);                    // set requested ip to line beginning
+		_requested_address = ToLineAddr(_requested_address);                    // set requested ip to line beginning
 		for (size_t i = 0; i < lineSizeWords; i++)
 		{                // fill the line with 32 instructions
-			new_line[i] = _mem.Read(_requestedIp);
-			_requestedIp += 4;
+			new_line[i] = _mem.Read(_requested_address);
+			_requested_address += 4;
 		}// create new cache record assigning _tag value to its tag
+
 		auto new_record = std::make_pair(_tag, new_line);
 		if (_code_cache.size() >= codeCacheBytes / lineSizeBytes)   // if cache is full
 		{
 			// find line with less usage in queue containing tag-clock pair
 			auto min = *std::min_element(
-					_code_queue.begin(),
-					_code_queue.end(),
+					_cached_code_map.begin(),
+					_cached_code_map.end(),
 					CompareSecond());
 
 			_data_cache.erase(min.first);     // after data is saved to memory from cache it can be removed from cache
-			_code_queue.erase(min.first);
+			_cached_code_map.erase(min.first);
 		}
 		_code_cache.push_back(new_record);                          // push new record in cache and to queue
-		_code_queue.insert({_tag, clock()});
+		_cached_code_map.insert({_tag, clock()});
 		return response;
 	}
 
-// if instruction is load/store type - set requested_ip to instr->addr from instruction
+	// if instruction is load/store type - set requested_ip to instr->addr from instruction
 	void Request(InstructionPtr &instr)
 	{
 		if (instr->_type != IType::Ld && instr->_type != IType::St)
@@ -84,80 +83,98 @@ public:
 
 		_tag = ToLineAddr(instr->_addr) / lineSizeBytes;            // evaluating _tag value
 		_cached = false;
-		_waitCycles = _latency;
+		_incomplete_iterations_count = _latency;
 		if (_data_cache.find(_tag) != _data_cache.end())
 		{          // if record tagged with _tag exists
 			_line = _data_cache[_tag].first;                        // get line of data from cache
 			_cached = true;                                         // set cached to true
-			_waitCycles = 3;                                        // set latency
+			_incomplete_iterations_count = 3;                                        // set latency
 		}
-		_requestedIp = instr->_addr;                                // set requested ip to data addr in instruction
+		_requested_address = instr->_addr;                                // set requested ip to data addr in instruction
 	}
 
-	bool
-	Response(InstructionPtr &instr)                            // checks whether the instruction is executed yet or not
+	// checks whether the instruction is executed yet or not
+	bool Response(InstructionPtr &instr)
 	{
-		if (instr->_type != IType::Ld && instr->_type !=
-		                                 IType::St)
-			// if instruction type is not load or store - it's executed immediately, thus instruction is executed already
+		// if instruction type is not load or store - it's executed immediately, thus instruction is executed already
+		if (instr->_type != IType::Ld && instr->_type != IType::St)
+		{
 			return true;
+		}
 
-		if (_waitCycles !=
-		    0)                                       // if there are cycles to wait for - instruction is not executed yet
+		// if there are cycles to wait for - instruction is not executed yet
+		if (_incomplete_iterations_count > 0)
+		{
 			return false;
+		}
 
 		if (!_cached)
 		{
-			Line new_line = Line();
-			Word line_begin = ToLineAddr(_requestedIp);
-			for (size_t i = 0; i < lineSizeWords; i++)
-			{            // fill the line with 32 words from memory
-				new_line[i] = _mem.Read(line_begin);
-				line_begin += 4;
-			}
-			std::__1::pair<Line, bool> new_record = std::make_pair(new_line, true);
-			if (_data_cache.size() >= dataCacheBytes / lineSizeBytes)
-			{
-				// find line with less usage in queue2 containing tag-clock pair
-				auto min = std::min_element(_data_queue.begin(), _data_queue.end(),
-				                            CompareSecond());
-				auto tag_of_min = min->first;
-
-				if (!_data_cache[tag_of_min].second)
-				{
-					size_t ip = tag_of_min * lineSizeBytes;
-					Line line = _data_cache[tag_of_min].first;
-					for (auto iter = line.begin();
-					     iter != line.end(); iter++)
-					{            // iterate over line and write 32 words to memory
-						_mem.Write(ip, *iter);
-						ip += 4;
-					}
-				}
-				// after data is saved to memory from cache it can be removed from cache
-				_data_cache.erase(
-						tag_of_min);
-				_data_queue.erase(tag_of_min);
-			}
-			_data_cache.insert({_tag, new_record});
-			_data_queue.insert({_tag, clock()});
+			SaveInCache();
 		}
 
-		_data_queue[_tag] = clock();
+		_cached_data_map[_tag] = clock();
+
 		if (instr->_type == IType::Ld)
-			instr->_data = _data_cache[_tag].first[ToLineOffset(_requestedIp)];          // get data from cache
+		{
+			instr->_data = _data_cache[_tag].first[ToLineOffset(_requested_address)];          // get data from cache
+		}
 		else
 		{
-			_data_cache[_tag].first[ToLineOffset(_requestedIp)] = instr->_data;          // alter data in cache
+			_data_cache[_tag].first[ToLineOffset(_requested_address)] = instr->_data;          // alter data in cache
 			_data_cache[_tag].second = false;                                            // data is not fresh anymore(ew)
 		}
+
 		return true;
+	}
+
+	void SaveInCache()
+	{
+		Line new_line = Line();
+		Word line_begin = ToLineAddr(_requested_address);
+		for (size_t i = 0; i < lineSizeWords; i++)
+		{            // fill the line with 32 words from memory
+			new_line[i] = _mem.Read(line_begin);
+			line_begin += 4;
+		}
+
+		std::__1::pair<Line, bool> new_record = std::make_pair(new_line, true);
+		if (_data_cache.size() >= dataCacheBytes / lineSizeBytes)
+		{
+			CleanCache();
+		}
+
+		_data_cache.insert({_tag, new_record});
+		_cached_data_map.insert({_tag, clock()});
+	}
+
+	void CleanCache()
+	{
+		// find line with less usage in queue2 containing tag-clock pair
+		auto min = std::min_element(this->_cached_data_map.begin(), this->_cached_data_map.end(),
+		                            CompareSecond());
+		auto tag_of_min = min->first;
+
+		if (!this->_data_cache[tag_of_min].second)
+		{
+			size_t ip = tag_of_min * lineSizeBytes;
+			Line line = this->_data_cache[tag_of_min].first;
+			for (auto iter = line.begin(); iter != line.end(); iter++)
+			{            // iterate over line and write 32 words to memory
+				this->_mem.Write(ip, *iter);
+				ip += 4;
+			}
+		}
+
+		// after data is saved to memory from cache it can be removed from cache
+		this->_data_cache.erase(tag_of_min);
+		this->_cached_data_map.erase(tag_of_min);
 	}
 
 	void Clock()
 	{
-		if (_waitCycles > 0)
-			--_waitCycles;
+		if (_incomplete_iterations_count > 0)
+			--_incomplete_iterations_count;
 	}
 
 
@@ -170,11 +187,11 @@ private:
 		}
 	};
 
-	std::__1::map<size_t, clock_t> _code_queue;                           // key - _tag, value - last time accessed
-	std::__1::map<size_t, clock_t> _data_queue;                           // key - _tag, value - last time accessed
+	std::__1::map<size_t, clock_t> _cached_code_map;                           // key - _tag, value - last time accessed
+	std::__1::map<size_t, clock_t> _cached_data_map;                           // key - _tag, value - last time accessed
 	static constexpr size_t _latency = 152;
-	Word _requestedIp = 0;
-	size_t _waitCycles = 0;
+	Word _requested_address = 0;
+	size_t _incomplete_iterations_count = 0;
 
 	size_t _tag;
 	Line _line;
