@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/alisapushnova/Downloads/Lab3/src/Instruction.cpp" "/Users/alisapushnova/Downloads/Lab3/CMakeFiles/riscv_sim.dir/src/Instruction.cpp.o"
-  "/Users/alisapushnova/Downloads/Lab3/src/main.cpp" "/Users/alisapushnova/Downloads/Lab3/CMakeFiles/riscv_sim.dir/src/main.cpp.o"
+  "/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Instruction.cpp" "/Users/alisapushnova/Repos/AWS/Lab3/Sources/CMakeFiles/riscv_sim.dir/src/Instruction.cpp.o"
+  "/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/main.cpp" "/Users/alisapushnova/Repos/AWS/Lab3/Sources/CMakeFiles/riscv_sim.dir/src/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

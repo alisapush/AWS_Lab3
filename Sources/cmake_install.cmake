@@ -1,4 +1,4 @@
-# Install script for directory: /Users/alisapushnova/Downloads/Lab3
+# Install script for directory: /Users/alisapushnova/Repos/AWS/Lab3/Sources
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/alisapushnova/Downloads/Lab3/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/alisapushnova/Repos/AWS/Lab3/Sources/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

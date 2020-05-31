@@ -43,10 +43,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/alisapushnova/Downloads/Lab3
+CMAKE_SOURCE_DIR = /Users/alisapushnova/Repos/AWS/Lab3/Sources
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/alisapushnova/Downloads/Lab3
+CMAKE_BINARY_DIR = /Users/alisapushnova/Repos/AWS/Lab3/Sources
 
 # Include any dependencies generated for this target.
 include CMakeFiles/riscv_sim.dir/depend.make
@@ -59,29 +59,29 @@ include CMakeFiles/riscv_sim.dir/flags.make
 
 CMakeFiles/riscv_sim.dir/src/Instruction.cpp.o: CMakeFiles/riscv_sim.dir/flags.make
 CMakeFiles/riscv_sim.dir/src/Instruction.cpp.o: src/Instruction.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/alisapushnova/Downloads/Lab3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/riscv_sim.dir/src/Instruction.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/riscv_sim.dir/src/Instruction.cpp.o -c /Users/alisapushnova/Downloads/Lab3/src/Instruction.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/alisapushnova/Repos/AWS/Lab3/Sources/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/riscv_sim.dir/src/Instruction.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/riscv_sim.dir/src/Instruction.cpp.o -c /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Instruction.cpp
 
 CMakeFiles/riscv_sim.dir/src/Instruction.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/riscv_sim.dir/src/Instruction.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/alisapushnova/Downloads/Lab3/src/Instruction.cpp > CMakeFiles/riscv_sim.dir/src/Instruction.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Instruction.cpp > CMakeFiles/riscv_sim.dir/src/Instruction.cpp.i
 
 CMakeFiles/riscv_sim.dir/src/Instruction.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/riscv_sim.dir/src/Instruction.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alisapushnova/Downloads/Lab3/src/Instruction.cpp -o CMakeFiles/riscv_sim.dir/src/Instruction.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Instruction.cpp -o CMakeFiles/riscv_sim.dir/src/Instruction.cpp.s
 
 CMakeFiles/riscv_sim.dir/src/main.cpp.o: CMakeFiles/riscv_sim.dir/flags.make
 CMakeFiles/riscv_sim.dir/src/main.cpp.o: src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/alisapushnova/Downloads/Lab3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/riscv_sim.dir/src/main.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/riscv_sim.dir/src/main.cpp.o -c /Users/alisapushnova/Downloads/Lab3/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/alisapushnova/Repos/AWS/Lab3/Sources/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/riscv_sim.dir/src/main.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/riscv_sim.dir/src/main.cpp.o -c /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/main.cpp
 
 CMakeFiles/riscv_sim.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/riscv_sim.dir/src/main.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/alisapushnova/Downloads/Lab3/src/main.cpp > CMakeFiles/riscv_sim.dir/src/main.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/main.cpp > CMakeFiles/riscv_sim.dir/src/main.cpp.i
 
 CMakeFiles/riscv_sim.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/riscv_sim.dir/src/main.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alisapushnova/Downloads/Lab3/src/main.cpp -o CMakeFiles/riscv_sim.dir/src/main.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/main.cpp -o CMakeFiles/riscv_sim.dir/src/main.cpp.s
 
 # Object files for target riscv_sim
 riscv_sim_OBJECTS = \
@@ -95,7 +95,7 @@ riscv_sim: CMakeFiles/riscv_sim.dir/src/Instruction.cpp.o
 riscv_sim: CMakeFiles/riscv_sim.dir/src/main.cpp.o
 riscv_sim: CMakeFiles/riscv_sim.dir/build.make
 riscv_sim: CMakeFiles/riscv_sim.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/alisapushnova/Downloads/Lab3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable riscv_sim"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/alisapushnova/Repos/AWS/Lab3/Sources/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable riscv_sim"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/riscv_sim.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -108,6 +108,6 @@ CMakeFiles/riscv_sim.dir/clean:
 .PHONY : CMakeFiles/riscv_sim.dir/clean
 
 CMakeFiles/riscv_sim.dir/depend:
-	cd /Users/alisapushnova/Downloads/Lab3 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/alisapushnova/Downloads/Lab3 /Users/alisapushnova/Downloads/Lab3 /Users/alisapushnova/Downloads/Lab3 /Users/alisapushnova/Downloads/Lab3 /Users/alisapushnova/Downloads/Lab3/CMakeFiles/riscv_sim.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/alisapushnova/Repos/AWS/Lab3/Sources && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/alisapushnova/Repos/AWS/Lab3/Sources /Users/alisapushnova/Repos/AWS/Lab3/Sources /Users/alisapushnova/Repos/AWS/Lab3/Sources /Users/alisapushnova/Repos/AWS/Lab3/Sources /Users/alisapushnova/Repos/AWS/Lab3/Sources/CMakeFiles/riscv_sim.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/riscv_sim.dir/depend
 

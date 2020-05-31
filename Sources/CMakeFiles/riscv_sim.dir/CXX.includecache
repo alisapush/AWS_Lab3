@@ -6,53 +6,57 @@
 
 #IncludeRegexTransform: 
 
-/Users/alisapushnova/Downloads/Lab3/src/BaseTypes.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/BaseTypes.h
 
-/Users/alisapushnova/Downloads/Lab3/src/Cpu.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Cpu.h
 Memory.h
-/Users/alisapushnova/Downloads/Lab3/src/Memory.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Memory.h
 Decoder.h
-/Users/alisapushnova/Downloads/Lab3/src/Decoder.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Decoder.h
 RegisterFile.h
-/Users/alisapushnova/Downloads/Lab3/src/RegisterFile.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/RegisterFile.h
 CsrFile.h
-/Users/alisapushnova/Downloads/Lab3/src/CsrFile.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/CsrFile.h
 Executor.h
-/Users/alisapushnova/Downloads/Lab3/src/Executor.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Executor.h
 
-/Users/alisapushnova/Downloads/Lab3/src/CsrFile.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/CsrFile.h
 optional
 -
 Instruction.h
-/Users/alisapushnova/Downloads/Lab3/src/Instruction.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Instruction.h
 
-/Users/alisapushnova/Downloads/Lab3/src/Decoder.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Decoder.h
 Instruction.h
-/Users/alisapushnova/Downloads/Lab3/src/Instruction.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Instruction.h
 
-/Users/alisapushnova/Downloads/Lab3/src/Executor.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Executor.h
 Instruction.h
-/Users/alisapushnova/Downloads/Lab3/src/Instruction.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Instruction.h
 
-/Users/alisapushnova/Downloads/Lab3/src/Instruction.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Instruction.cpp
+Instruction.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Instruction.h
+
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Instruction.h
 optional
 -
 memory
 -
 BaseTypes.h
-/Users/alisapushnova/Downloads/Lab3/src/BaseTypes.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/BaseTypes.h
 PoolAllocator.h
-/Users/alisapushnova/Downloads/Lab3/src/PoolAllocator.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/PoolAllocator.h
 
-/Users/alisapushnova/Downloads/Lab3/src/Memory.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Memory.h
 Instruction.h
-/Users/alisapushnova/Downloads/Lab3/src/Instruction.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Instruction.h
 iostream
 -
 fstream
 -
 elf.h
-/Users/alisapushnova/Downloads/Lab3/src/elf.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/elf.h
 cstring
 -
 vector
@@ -70,27 +74,27 @@ algorithm
 array
 -
 
-/Users/alisapushnova/Downloads/Lab3/src/PoolAllocator.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/PoolAllocator.h
 cstddef
 -
 cstdlib
 -
 
-/Users/alisapushnova/Downloads/Lab3/src/RegisterFile.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/RegisterFile.h
 Instruction.h
-/Users/alisapushnova/Downloads/Lab3/src/Instruction.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Instruction.h
 
-/Users/alisapushnova/Downloads/Lab3/src/elf.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/elf.h
 stdint.h
 -
 
-/Users/alisapushnova/Downloads/Lab3/src/main.cpp
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/main.cpp
 Cpu.h
-/Users/alisapushnova/Downloads/Lab3/src/Cpu.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Cpu.h
 Memory.h
-/Users/alisapushnova/Downloads/Lab3/src/Memory.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Memory.h
 BaseTypes.h
-/Users/alisapushnova/Downloads/Lab3/src/BaseTypes.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/BaseTypes.h
 optional
 -
 
