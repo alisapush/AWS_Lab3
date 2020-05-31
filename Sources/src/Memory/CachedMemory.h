@@ -1,16 +1,13 @@
-//
-// Created by Alisa Pushnova on 5/31/20.
-//
 
-#ifndef RISCV_SIM_CACHEDMEM_H
-#define RISCV_SIM_CACHEDMEM_H
+#ifndef RISCV_SIM_CACHEDMEMORY_H
+#define RISCV_SIM_CACHEDMEMORY_H
 
-#include "IMem.h"
+#include "IMemory.h"
 #include "MemoryStorage.h"
 
-class CachedMem : public IMem {
+class CachedMemory : public IMemory {
 public:
-    explicit CachedMem(MemoryStorage &amem)
+    explicit CachedMemory(MemoryStorage &amem)
             : _mem(amem) {
 
     }
@@ -169,6 +166,4 @@ private:
     bool _cached = false;
 };
 
-#include "Memory.h"
-
-#endif //RISCV_SIM_CACHEDMEM_H
+#endif //RISCV_SIM_CACHEDMEMORY_H

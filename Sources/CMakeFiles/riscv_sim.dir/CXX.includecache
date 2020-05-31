@@ -8,17 +8,9 @@
 
 /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/BaseTypes.h
 
-/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/CachedMem.h
-IMem.h
-/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/IMem.h
-MemoryStorage.h
-/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/MemoryStorage.h
-Memory.h
-/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Memory.h
-
 /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Cpu.h
-Memory.h
-/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Memory.h
+Memory/MemoryConfig.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Memory/MemoryConfig.h
 Decoder.h
 /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Decoder.h
 RegisterFile.h
@@ -27,8 +19,8 @@ CsrFile.h
 /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/CsrFile.h
 Executor.h
 /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Executor.h
-CachedMem.h
-/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/CachedMem.h
+Memory/CachedMemory.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Memory/CachedMemory.h
 
 /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/CsrFile.h
 optional
@@ -43,34 +35,6 @@ Instruction.h
 /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Executor.h
 Instruction.h
 /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Instruction.h
-
-/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/IMem.h
-Memory.h
-/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Memory.h
-iostream
--
-fstream
--
-cstring
--
-vector
--
-cassert
--
-map
--
-queue
--
-time.h
--
-algorithm
--
-array
--
-Instruction.h
-/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Instruction.h
-elf.h
-/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/elf.h
 
 /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Instruction.h
 optional
@@ -82,14 +46,24 @@ BaseTypes.h
 PoolAllocator.h
 /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/PoolAllocator.h
 
-/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Memory.h
-Instruction.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Memory/CachedMemory.h
+IMemory.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Memory/IMemory.h
+MemoryStorage.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Memory/MemoryStorage.h
+
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Memory/IMemory.h
+MemoryConfig.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Memory/MemoryConfig.h
+
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Memory/MemoryConfig.h
+../Instruction.h
 /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Instruction.h
 iostream
 -
 fstream
 -
-elf.h
+../elf.h
 /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/elf.h
 cstring
 -
@@ -108,9 +82,9 @@ algorithm
 array
 -
 
-/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/MemoryStorage.h
-Memory.h
-/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Memory.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Memory/MemoryStorage.h
+MemoryConfig.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Memory/MemoryConfig.h
 
 /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/PoolAllocator.h
 cstddef
@@ -129,14 +103,14 @@ stdint.h
 /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/main.cpp
 Cpu.h
 /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Cpu.h
-Memory.h
-/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Memory.h
+Memory/MemoryConfig.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Memory/MemoryConfig.h
 BaseTypes.h
 /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/BaseTypes.h
-MemoryStorage.h
-/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/MemoryStorage.h
-CachedMem.h
-/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/CachedMem.h
+Memory/MemoryStorage.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Memory/MemoryStorage.h
+Memory/CachedMemory.h
+/Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Memory/CachedMemory.h
 optional
 -
 

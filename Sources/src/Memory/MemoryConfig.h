@@ -2,10 +2,10 @@
 #ifndef RISCV_SIM_DATAMEMORY_H
 #define RISCV_SIM_DATAMEMORY_H
 
-#include "Instruction.h"
+#include "../Instruction.h"
 #include <iostream>
 #include <fstream>
-#include "elf.h"
+#include "../elf.h"
 #include <cstring>
 #include <vector>
 #include <cassert>

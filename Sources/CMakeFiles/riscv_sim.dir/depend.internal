@@ -8,15 +8,15 @@ CMakeFiles/riscv_sim.dir/src/Instruction.cpp.o
  /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/PoolAllocator.h
 CMakeFiles/riscv_sim.dir/src/main.cpp.o
  /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/BaseTypes.h
- /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/CachedMem.h
  /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Cpu.h
  /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/CsrFile.h
  /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Decoder.h
  /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Executor.h
- /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/IMem.h
  /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Instruction.h
- /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Memory.h
- /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/MemoryStorage.h
+ /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Memory/CachedMemory.h
+ /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Memory/IMemory.h
+ /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Memory/MemoryConfig.h
+ /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/Memory/MemoryStorage.h
  /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/PoolAllocator.h
  /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/RegisterFile.h
  /Users/alisapushnova/Repos/AWS/Lab3/Sources/src/elf.h

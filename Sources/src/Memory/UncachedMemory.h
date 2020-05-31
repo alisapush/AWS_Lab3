@@ -2,15 +2,15 @@
 // Created by Alisa Pushnova on 5/31/20.
 //
 
-#ifndef RISCV_SIM_UNCACHEDMEM_H
-#define RISCV_SIM_UNCACHEDMEM_H
+#ifndef RISCV_SIM_UNCACHEDMEMORY_H
+#define RISCV_SIM_UNCACHEDMEMORY_H
 
-#include "IMem.h"
+#include "IMemory.h"
 #include "MemoryStorage.h"
 
-class UncachedMem : public IMem {
+class UncachedMemory : public IMemory {
 public:
-    explicit UncachedMem(MemoryStorage &amem)
+    explicit UncachedMemory(MemoryStorage &amem)
             : _mem(amem) {
 
     }
@@ -72,18 +72,4 @@ private:
     MemoryStorage &_mem;
 };
 
-#include <iostream>
-#include <fstream>
-#include <cstring>
-#include <vector>
-#include <cassert>
-#include <map>
-#include <queue>
-#include <time.h>
-#include <algorithm>
-#include <array>
-#include "Instruction.h"
-#include "elf.h"
-#include "IMem.h"
-
-#endif //RISCV_SIM_UNCACHEDMEM_H
+#endif //RISCV_SIM_UNCACHEDMEMORY_H

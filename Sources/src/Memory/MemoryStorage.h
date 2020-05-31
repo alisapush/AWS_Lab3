@@ -1,7 +1,7 @@
 #ifndef RISCV_SIM_MEMORYSTORAGE_H
 #define RISCV_SIM_MEMORYSTORAGE_H
 
-#include "Memory.h"
+#include "MemoryConfig.h"
 
 class MemoryStorage {
 public:

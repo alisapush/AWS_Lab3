@@ -2,17 +2,17 @@
 #ifndef RISCV_SIM_CPU_H
 #define RISCV_SIM_CPU_H
 
-#include "Memory.h"
+#include "Memory/MemoryConfig.h"
 #include "Decoder.h"
 #include "RegisterFile.h"
 #include "CsrFile.h"
 #include "Executor.h"
-#include "CachedMem.h"
+#include "Memory/CachedMemory.h"
 
 class Cpu
 {
 public:
-    Cpu(CachedMem& mem)
+    Cpu(CachedMemory& mem)
         : _mem(mem)
     {
         _status = Status::Ready;
@@ -69,7 +69,7 @@ private:
     RegisterFile _rf;
     CsrFile _csrf;
     Executor _exe;
-    CachedMem& _mem;
+    CachedMemory& _mem;
     // Add your code here, if needed
 
     InstructionPtr _instruction;

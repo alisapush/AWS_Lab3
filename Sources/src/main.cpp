@@ -1,8 +1,8 @@
 #include "Cpu.h"
-#include "Memory.h"
+#include "Memory/MemoryConfig.h"
 #include "BaseTypes.h"
-#include "MemoryStorage.h"
-#include "CachedMem.h"
+#include "Memory/MemoryStorage.h"
+#include "Memory/CachedMemory.h"
 
 #include <optional>
 
@@ -10,7 +10,7 @@ int main()
 {
     MemoryStorage mem ;
     mem.LoadElf("program");
-    std::unique_ptr<CachedMem> memModelPtr(new CachedMem (mem));
+    std::unique_ptr<CachedMemory> memModelPtr(new CachedMemory (mem));
     Cpu cpu{*memModelPtr};
     cpu.Reset(0x200);
 
