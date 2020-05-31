@@ -5,6 +5,8 @@
 #include "IMemory.h"
 #include "MemoryStorage.h"
 
+// весь класс =========================
+
 class CachedMemory : public IMemory
 {
 public:
@@ -22,7 +24,8 @@ public:
 		for (auto &iter : _code_cache)
 		{
 			if (iter.first == _tag)
-			{                               // if corresponding tag is found
+			{
+				// if corresponding tag is found
 				_line = iter.second;                                // get whole line from cache
 				_cached = true;                                     // set cached to true
 				_waitCycles = 0;                                    // instructions are fetched from cache immediately
@@ -182,5 +185,7 @@ private:
 	std::__1::map<size_t, std::__1::pair<Line, bool>> _data_cache;
 	bool _cached = false;
 };
+
+// =========================
 
 #endif //RISCV_SIM_CACHEDMEMORY_H
