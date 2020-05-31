@@ -24,11 +24,14 @@ using Line = std::array<Word, lineSizeWords>;
 using TagClockPair = std::pair<size_t, clock_t>;
 static constexpr size_t dataCacheBytes = 2048; // data cache size in bytes
 static constexpr size_t codeCacheBytes = 1024; // instructions cache size in bytes
-static Word ToWordAddr(Word addr) { return addr >> 2u; }
+static Word ToWordAddr(Word addr)
+{ return addr >> 2u; }
 
-static Word ToLineAddr(Word addr) { return addr & ~(lineSizeBytes - 1); }
+static Word ToLineAddr(Word addr)
+{ return addr & ~(lineSizeBytes - 1); }
 
-static Word ToLineOffset(Word addr) { return ToWordAddr(addr) & (lineSizeWords - 1); }
+static Word ToLineOffset(Word addr)
+{ return ToWordAddr(addr) & (lineSizeWords - 1); }
 
 
 #endif //RISCV_SIM_DATAMEMORY_H
