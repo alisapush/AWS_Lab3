@@ -15,7 +15,7 @@ public:
 
 	void Request(Word ip)
 	{
-		_tag = to_line_addr(ip) / lineSizeBytes;                      // evaluating _tag value
+		_tag = to_line_addr(ip) / line_size_bytes;                      // evaluating _tag value
 		_cached = false;
 		_incomplete_iterations_count = _latency;
 		for (auto &iter : _code_cache)
@@ -57,7 +57,7 @@ public:
 		}
 
 		auto new_record = std::make_pair(_tag, new_line);
-		if (_code_cache.size() >= codeCacheBytes / lineSizeBytes)
+		if (_code_cache.size() >= codeCacheBytes / line_size_bytes)
 		{
 			auto min = *std::min_element(
 					_cached_code_map.begin(),
@@ -77,7 +77,7 @@ public:
 		if (instr->_type != IType::Ld && instr->_type != IType::St)
 			return;
 
-		_tag = to_line_addr(instr->_addr) / lineSizeBytes;
+		_tag = to_line_addr(instr->_addr) / line_size_bytes;
 		_cached = false;
 		_incomplete_iterations_count = _latency;
 		if (_data_cache.find(_tag) != _data_cache.end())
@@ -132,7 +132,7 @@ public:
 		}
 
 		std::__1::pair<Line, bool> new_record = std::make_pair(new_line, true);
-		if (_data_cache.size() >= dataCacheBytes / lineSizeBytes)
+		if (_data_cache.size() >= dataCacheBytes / line_size_bytes)
 		{
 			CleanCache();
 		}
@@ -149,7 +149,7 @@ public:
 
 		if (!this->_data_cache[tag_of_min].second)
 		{
-			size_t ip = tag_of_min * lineSizeBytes;
+			size_t ip = tag_of_min * line_size_bytes;
 			Line line = this->_data_cache[tag_of_min].first;
 			for (auto iter = line.begin(); iter != line.end(); iter++)
 			{
@@ -167,7 +167,6 @@ public:
 		if (_incomplete_iterations_count > 0)
 			--_incomplete_iterations_count;
 	}
-
 
 private:
 	struct CompareSecond
